@@ -1,0 +1,57 @@
+import tkinter as tk
+from tkinter import ttk
+
+programme = tk.Tk()
+programme.title('')
+
+img = tk.PhotoImage(file="IMDBima-2.png")
+l1 = tk.Label(image=img).grid(row=0,column=0)
+
+ttk.Entry(programme).grid(row=0,column=1)
+tk.Button(programme, text = 'rechercher').grid(row=0,column=3)
+
+img2 = tk.PhotoImage(file="Dune.png")
+l2 = tk.Label(image=img2).grid(row=2,column=2)
+
+ttk.Label(programme,text='Acteurs:').grid(row=3,column=2)
+ttk.Label(programme, text='Timothée Chalamet, Oscar Isaac, Rebecca Ferguson, Stellan Skarsgard, Zendaya, Jason Momoa, David Bautista').grid(row=4,column=2)
+
+ttk.Label(programme,text='Description :').grid(row=5,column=2)
+ttk.Label(programme,text="""En 10191, l'empereur Shaddam IV qui règne sur l'univers,
+établit une alliance avec les Harkonnen de la planète Geidi Prime pour éliminer de la galaxie la dynastie des Atréides,
+et leur chef, le duc Leto,de la planète Caladan.
+Pour y parvenir, il envoie les Atréides sur la planète Arrakis,
+appelée également Dune, où ils doivent être assassinés par les terribles Harkonnens.""").grid(row=6,column=2)
+
+programme.geometry("6000x5000")
+programme["bg"]="black"
+
+x=0
+Entrée = ttk.Entry(programme,textvariable=x)
+Entrée.grid(row=7,column=2)
+
+def ftest():
+    x = Entrée.get()
+    
+      
+
+    Cadre1 = tk.Frame(programme)
+    Cadre1.grid(row=8,column=2)
+    t1 = tk.Text(Cadre1,fg="white",bg='black')
+
+    t1.insert(0.0,x)
+    t1.grid(row=8,column=2)
+        
+
+#ttk.Entry(programme,textvariable=x).grid(row=7,column=2)
+
+ttk.Button(programme, text = 'Enregistrer le commentaire', command=ftest).grid(row=7,column=3)
+
+#Cadre1 = tk.Frame(programme)
+#Cadre1.pack(side="right", expand=1,fill=tk.BOTH)
+#t1 = tk.Text(Cadre1,fg="white",bg='black')
+
+#t1.insert(0.0,x)
+#t1.pack(fill=tk.BOTH, expand=1)
+
+programme.mainloop()
